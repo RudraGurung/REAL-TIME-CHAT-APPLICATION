@@ -1,4 +1,4 @@
-#REAL-TIME-CHAT-APPLICATION
+REAL-TIME-CHAT-APPLICATION
 
 COMPANY : CODTECH IT SOLUTIONS PRIVATE LIMITED
 
@@ -89,3 +89,12 @@ Frontend:
 cd frontend
 npm install
 npm start
+
+
+Output:-
+
+
+<img width="1919" height="1079" alt="Image" src="https://github.com/user-attachments/assets/cd94a970-eb1e-446c-b0ad-a4f402bc7798" />
+<img width="954" height="967" alt="Image" src="https://github.com/user-attachments/assets/0dc81f9b-e525-440a-b12a-c02511e94ed6" />
+<img width="1919" height="1079" alt="Image" src="https://github.com/user-attachments/assets/cbab5ce0-d695-4d3b-874f-46f167d4b454" />
+<img width="1919" height="1079" alt="Image" src="https://github.com/user-attachments/assets/a69b6de3-a13d-4889-a169-c1960279a7a9" />
