@@ -124,7 +124,7 @@ const renameGroup = expressAsyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("Chat not Found");
   } else {
-    res.json(updatedChat);
+    return res.status(200).json(updatedChat);
   }
 });
 

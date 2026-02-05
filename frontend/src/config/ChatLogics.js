@@ -3,3 +3,46 @@ export const getSender = (loggedUser, users) => {
 
   return users[0]._id === loggedUser._id ? users[1].name : users[0].name;
 };
+
+export const getSenderFull = (loggedUser, users) => {
+  if (!loggedUser || !users || users.length < 2) return;
+
+  return users[0]._id === loggedUser._id ? users[1] : users[0];
+};
+
+export const isSameSender = (messages, m, i, userId) => {
+  if (!messages[i + 1]) return false;
+
+  return (
+    String(messages[i + 1].sender._id) !== String(m.sender._id) &&
+    String(m.sender._id) !== String(userId)
+  );
+};
+
+export const isLastMessage = (messages, i, userId) => {
+  return (
+    i === messages.length - 1 &&
+    String(messages[i].sender._id) !== String(userId)
+  );
+};
+
+export const isSameSenderMargin = (messages, m, i, userId) => {
+  if (
+    i < messages.length - 1 &&
+    messages[i + 1].sender._id &&
+    messages[i].sender._id !== userId
+  )
+    return 33;
+  else if (
+    (i < messages.length - 1 &&
+      messages[i + 1].sender._id !== m.sender._id &&
+      messages[i].sender._id !== userId) ||
+    (i === messages.length - 1 && messages[i].sender._id !== userId)
+  )
+    return 0;
+  else return "auto";
+};
+
+export const isSameUser = (messages, m, i) => {
+  return i > 0 && messages[i - 1].sender._id === m.sender._id;
+};

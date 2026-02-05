@@ -33,7 +33,9 @@ const GroupChatModal = ({ children }) => {
 
   const handleSearch = async (query) => {
     setSearch(query);
+
     if (!query) {
+      setSearchResult([]);
       return;
     }
 
@@ -46,22 +48,26 @@ const GroupChatModal = ({ children }) => {
         },
       };
 
-      const { data } = await axios.get(`/api/user?search=${search}`, config);
+      const { data } = await axios.get(
+        `/api/user?search=${encodeURIComponent(query)}`,
+        config,
+      );
 
       setSearchResult(data);
-      setLoading(false);
-      // console.log(data);
     } catch (error) {
       toast({
-        title: "Error Occured!",
+        title: "Error Occurred!",
         description: "Failed to Load the Search Result",
         status: "error",
         duration: 5000,
         isClosable: true,
         position: "bottom-left",
       });
+    } finally {
+      setLoading(false);
     }
   };
+
   const handleSubmit = async () => {
     if (!groupChatName && !selectedUsers) {
       toast({

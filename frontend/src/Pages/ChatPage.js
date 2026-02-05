@@ -3,9 +3,11 @@ import { Box, Spinner } from "@chakra-ui/react";
 import SideDrawer from "../components/miscellaneous/SideDrawer";
 import ChatBox from "../components/ChatBox";
 import MyChats from "../components/MyChats";
+import { useState } from "react";
 
 const ChatPage = () => {
   const { user } = ChatState();
+  const [fetchAgain, setFetchAgain] = useState(false);
   // console.log("User from context:", user);
   if (!user) return <Spinner />;
 
@@ -19,8 +21,10 @@ const ChatPage = () => {
         h={"90vh"}
         p={"10px"}
       >
-        {user && <MyChats />}
-        {user && <ChatBox />}
+        {user && <MyChats fetchAgain={fetchAgain} />}
+        {user && (
+          <ChatBox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
+        )}
       </Box>
     </div>
   );

@@ -1,9 +1,9 @@
 {
   "name": "talkatopia",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon backend/index.js"
+    "start": "nodemon backend/server.js"
   },
   "author": "Rudra Gurung",
   "license": "ISC",
@@ -15,6 +15,7 @@
     "express": "^5.2.1",
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^9.0.3",
-    "mongoose": "^9.1.5"
+    "mongoose": "^9.1.5",
+    "socket.io": "^4.8.3"
   }
 }
